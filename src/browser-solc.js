@@ -34,7 +34,7 @@ function loadVersion(version, callback) {
     // NOTE: workaround some browsers
     window.Module = undefined
 
-    var url = "https://ethereum.github.io/solc-bin/bin/" + version;
+    var url = "https://binaries.soliditylang.org/bin/" + version;
     loadScript("solc", url, function() {
         var compiler = solc(window.Module);
         callback(compiler);
@@ -43,7 +43,7 @@ function loadVersion(version, callback) {
 
 // Also loads global variables called "soljsonSources" and "soljsonReleases"
 function getVersions(callback) {
-    var url = "https://ethereum.github.io/solc-bin/bin/list.js";
+    var url = "https://binaries.soliditylang.org/bin/list.js";
     loadScript("solc-list", url, function() {
         callback(soljsonSources, soljsonReleases);
     });
